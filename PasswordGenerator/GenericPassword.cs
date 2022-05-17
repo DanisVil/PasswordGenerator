@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace PasswordGenerator
     class GenericPassword
     {
         private const int LENGTH = 10;
-        private const bool MAT_ON = true;
+        private const bool WORD_ON = true;
         private const bool SIMILAR_CHAR = true;
         private const bool AMBIGUOUS_CHAR = true;
         private const bool INCLUDE_SIMBOLS = true;
@@ -26,8 +27,8 @@ namespace PasswordGenerator
             Random rnd = new Random();
             int wordWeight = 0;
             int indexWord = 0;
-            string word;
-            if (MAT_ON)
+            string word=null;
+            if (WORD_ON)
             {
                 word = GetWord(4);
                 indexWord = rnd.Next(0, LENGTH - word.Length + 1);
@@ -65,6 +66,7 @@ namespace PasswordGenerator
                                     || !character;
             return generalCondition;
         }
+            
         private static string GetWord(int length)
         {
             string word = "fuck";

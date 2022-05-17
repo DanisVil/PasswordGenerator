@@ -17,15 +17,15 @@ namespace PasswordGenerator
         }
         public static string Hash1StringToString(string input)
         {
-            var sha256 = SHA1.Create();
-            byte[] byteStringAfter = sha256.ComputeHash(input.Select(x => ((byte)x)).ToArray());
+            var sha1 = SHA1.Create();
+            byte[] byteStringAfter = sha1.ComputeHash(input.Select(x => ((byte)x)).ToArray());
             return string.Concat(byteStringAfter.Select(x => (char)x));
         }
         public static string HashRememberSaltTeam(string hash, string salt)
         {
             if (hash.Length != 32)
             {
-                throw new Exception("Че за парашу мне подсунул!! Тут должно быть 32 символа не больше, не меньше.");
+                throw new Exception("Тут должно быть 32 символа не больше, не меньше.");
             }
             StringBuilder sb = new StringBuilder(hash);
             salt = Hash1StringToString(salt);
