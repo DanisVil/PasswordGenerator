@@ -20,6 +20,7 @@ namespace PasswordGenerator
         private const string SIMILAR_CHARS = "il1Lo0O";
         private const string AMBIGUOUS_CHARS = "{}[]()/\\\'\"`~,;:.<>";
         private const int ASKII_MAX = 126;
+        //private string[] SWEAR_WORDS = Properties.Resources.swear_words.Split('\n'); //матюки
 
         public static string GetPass()
         {
