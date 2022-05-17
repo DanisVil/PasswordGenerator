@@ -20,7 +20,8 @@ namespace PasswordGenerator
         private const string SIMILAR_CHARS = "il1Lo0O";
         private const string AMBIGUOUS_CHARS = "{}[]()/\\\'\"`~,;:.<>";
         private const int ASKII_MAX = 126;
-        //private string[] SWEAR_WORDS = Properties.Resources.swear_words.Split('\n'); //матюки
+        private const int CORRECTOR = 2;
+        private static string[] SWEAR_WORDS = Properties.Resources.swear_words.Split('\n'); //матюки
 
         public static string GetPass()
         {
@@ -67,11 +68,16 @@ namespace PasswordGenerator
                                     || !character;
             return generalCondition;
         }
-            
+
         private static string GetWord(int length)
         {
-            string word = "fuck";
-            //рандомно берет одно слово в зависимости от длины 
+            Random rnd = new Random();
+            int maxLengthWord = rnd.Next(SWEAR_WORDS.Min(x => x.Length), length - CORRECTOR);
+            string word = SWEAR_WORDS[rnd.Next(SWEAR_WORDS.Length)];
+            while (word.Length > maxLengthWord)
+            {
+                word = SWEAR_WORDS[rnd.Next(SWEAR_WORDS.Length)];
+            }
             return word;
         }
     }
