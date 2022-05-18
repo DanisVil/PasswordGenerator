@@ -47,7 +47,30 @@ namespace PasswordGenerator
                 incorrectDataLabel.Visible = true;
                 return;
             }
-            MessageBox.Show("успешный вход");
+            else 
+            {
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly")) 
+                {
+                    connection.Open();
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT * FROM users WHERE login = '{loginTextBox.Text}' AND pass = '{passwordTextBox.Text}'";
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        int id = 0;
+                        if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
+                        {
+                            passwordTextBox.Text = string.Empty;
+                            MessageBox.Show("успешно");
+                            return;
+                        }
+                    }
+                }
+            }
+            
+            incorrectDataLabel.Text = "Неверные логин или пароль";
+            incorrectDataLabel.Visible = true;
+
         }
 
         private void generatePassBtn_Click(object sender, EventArgs e)

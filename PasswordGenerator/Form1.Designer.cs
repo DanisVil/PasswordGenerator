@@ -131,7 +131,7 @@ namespace PasswordGenerator
             // 
             this.showPassCheckBox.AutoSize = true;
             this.showPassCheckBox.ForeColor = System.Drawing.Color.Black;
-            this.showPassCheckBox.Location = new System.Drawing.Point(80, 226);
+            this.showPassCheckBox.Location = new System.Drawing.Point(80, 227);
             this.showPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showPassCheckBox.Name = "showPassCheckBox";
             this.showPassCheckBox.Size = new System.Drawing.Size(114, 17);
@@ -168,7 +168,7 @@ namespace PasswordGenerator
             this.incorrectDataLabel.AutoSize = true;
             this.incorrectDataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.incorrectDataLabel.ForeColor = System.Drawing.Color.Red;
-            this.incorrectDataLabel.Location = new System.Drawing.Point(80, 228);
+            this.incorrectDataLabel.Location = new System.Drawing.Point(77, 247);
             this.incorrectDataLabel.Name = "incorrectDataLabel";
             this.incorrectDataLabel.Size = new System.Drawing.Size(0, 15);
             this.incorrectDataLabel.TabIndex = 6;
@@ -187,7 +187,7 @@ namespace PasswordGenerator
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(77, 255);
+            this.linkLabel1.Location = new System.Drawing.Point(77, 265);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(158, 13);
             this.linkLabel1.TabIndex = 4;
