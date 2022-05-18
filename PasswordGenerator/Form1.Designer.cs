@@ -46,6 +46,9 @@ namespace PasswordGenerator
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.showConfirmPassCheckBox = new System.Windows.Forms.CheckBox();
+            this.showPassCheckBox2 = new System.Windows.Forms.CheckBox();
+            this.confirmPassCheck = new System.Windows.Forms.Label();
             this.mailCheck2 = new System.Windows.Forms.Label();
             this.passCheck2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,7 +71,7 @@ namespace PasswordGenerator
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.generatedPssword = new System.Windows.Forms.TextBox();
+            this.genPassTB = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,10 +85,7 @@ namespace PasswordGenerator
             this.mailTip = new System.Windows.Forms.ToolTip(this.components);
             this.passTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.mailTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.confirmPassCheck = new System.Windows.Forms.Label();
             this.confirmPassTip = new System.Windows.Forms.ToolTip(this.components);
-            this.showPassCheckBox2 = new System.Windows.Forms.CheckBox();
-            this.showConfirmPassCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -260,6 +260,43 @@ namespace PasswordGenerator
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // showConfirmPassCheckBox
+            // 
+            this.showConfirmPassCheckBox.AutoSize = true;
+            this.showConfirmPassCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.showConfirmPassCheckBox.Location = new System.Drawing.Point(56, 241);
+            this.showConfirmPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.showConfirmPassCheckBox.Name = "showConfirmPassCheckBox";
+            this.showConfirmPassCheckBox.Size = new System.Drawing.Size(114, 17);
+            this.showConfirmPassCheckBox.TabIndex = 13;
+            this.showConfirmPassCheckBox.Text = "Показать пароль";
+            this.showConfirmPassCheckBox.UseVisualStyleBackColor = true;
+            this.showConfirmPassCheckBox.CheckedChanged += new System.EventHandler(this.showConfirmPassCheckBox_CheckedChanged);
+            // 
+            // showPassCheckBox2
+            // 
+            this.showPassCheckBox2.AutoSize = true;
+            this.showPassCheckBox2.ForeColor = System.Drawing.Color.Black;
+            this.showPassCheckBox2.Location = new System.Drawing.Point(59, 159);
+            this.showPassCheckBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.showPassCheckBox2.Name = "showPassCheckBox2";
+            this.showPassCheckBox2.Size = new System.Drawing.Size(114, 17);
+            this.showPassCheckBox2.TabIndex = 12;
+            this.showPassCheckBox2.Text = "Показать пароль";
+            this.showPassCheckBox2.UseVisualStyleBackColor = true;
+            this.showPassCheckBox2.CheckedChanged += new System.EventHandler(this.showPassCheckBox2_CheckedChanged);
+            // 
+            // confirmPassCheck
+            // 
+            this.confirmPassCheck.AutoSize = true;
+            this.confirmPassCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.confirmPassCheck.ForeColor = System.Drawing.Color.Red;
+            this.confirmPassCheck.Location = new System.Drawing.Point(269, 216);
+            this.confirmPassCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.confirmPassCheck.Name = "confirmPassCheck";
+            this.confirmPassCheck.Size = new System.Drawing.Size(0, 17);
+            this.confirmPassCheck.TabIndex = 11;
+            // 
             // mailCheck2
             // 
             this.mailCheck2.AutoSize = true;
@@ -384,7 +421,7 @@ namespace PasswordGenerator
             this.tabPage3.Controls.Add(this.checkBox3);
             this.tabPage3.Controls.Add(this.checkBox2);
             this.tabPage3.Controls.Add(this.checkBox1);
-            this.tabPage3.Controls.Add(this.generatedPssword);
+            this.tabPage3.Controls.Add(this.genPassTB);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.label10);
@@ -404,6 +441,7 @@ namespace PasswordGenerator
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -551,12 +589,13 @@ namespace PasswordGenerator
             this.checkBox1.Text = "(например : 123456 )";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // generatedPssword
+            // genPassTB
             // 
-            this.generatedPssword.Location = new System.Drawing.Point(195, 42);
-            this.generatedPssword.Name = "generatedPssword";
-            this.generatedPssword.Size = new System.Drawing.Size(207, 20);
-            this.generatedPssword.TabIndex = 10;
+            this.genPassTB.Location = new System.Drawing.Point(195, 42);
+            this.genPassTB.Name = "genPassTB";
+            this.genPassTB.ReadOnly = true;
+            this.genPassTB.Size = new System.Drawing.Size(207, 20);
+            this.genPassTB.TabIndex = 10;
             // 
             // label12
             // 
@@ -636,6 +675,7 @@ namespace PasswordGenerator
             this.confirmGeneration.TabIndex = 2;
             this.confirmGeneration.Text = "Применить";
             this.confirmGeneration.UseVisualStyleBackColor = true;
+            this.confirmGeneration.Click += new System.EventHandler(this.confirmGeneration_Click);
             // 
             // backBtn2
             // 
@@ -655,46 +695,9 @@ namespace PasswordGenerator
             // 
             this.mailTip2.ToolTipTitle = "Почему пароль не подходит?";
             // 
-            // confirmPassCheck
-            // 
-            this.confirmPassCheck.AutoSize = true;
-            this.confirmPassCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.confirmPassCheck.ForeColor = System.Drawing.Color.Red;
-            this.confirmPassCheck.Location = new System.Drawing.Point(269, 216);
-            this.confirmPassCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.confirmPassCheck.Name = "confirmPassCheck";
-            this.confirmPassCheck.Size = new System.Drawing.Size(0, 17);
-            this.confirmPassCheck.TabIndex = 11;
-            // 
             // confirmPassTip
             // 
             this.confirmPassTip.ToolTipTitle = "Подтверждение пароля";
-            // 
-            // showPassCheckBox2
-            // 
-            this.showPassCheckBox2.AutoSize = true;
-            this.showPassCheckBox2.ForeColor = System.Drawing.Color.Black;
-            this.showPassCheckBox2.Location = new System.Drawing.Point(59, 159);
-            this.showPassCheckBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.showPassCheckBox2.Name = "showPassCheckBox2";
-            this.showPassCheckBox2.Size = new System.Drawing.Size(114, 17);
-            this.showPassCheckBox2.TabIndex = 12;
-            this.showPassCheckBox2.Text = "Показать пароль";
-            this.showPassCheckBox2.UseVisualStyleBackColor = true;
-            this.showPassCheckBox2.CheckedChanged += new System.EventHandler(this.showPassCheckBox2_CheckedChanged);
-            // 
-            // showConfirmPassCheckBox
-            // 
-            this.showConfirmPassCheckBox.AutoSize = true;
-            this.showConfirmPassCheckBox.ForeColor = System.Drawing.Color.Black;
-            this.showConfirmPassCheckBox.Location = new System.Drawing.Point(56, 241);
-            this.showConfirmPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.showConfirmPassCheckBox.Name = "showConfirmPassCheckBox";
-            this.showConfirmPassCheckBox.Size = new System.Drawing.Size(114, 17);
-            this.showConfirmPassCheckBox.TabIndex = 13;
-            this.showConfirmPassCheckBox.Text = "Показать пароль";
-            this.showConfirmPassCheckBox.UseVisualStyleBackColor = true;
-            this.showConfirmPassCheckBox.CheckedChanged += new System.EventHandler(this.showConfirmPassCheckBox_CheckedChanged);
             // 
             // Form1
             // 
@@ -749,7 +752,7 @@ namespace PasswordGenerator
         private CheckBox checkBox3;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
-        private TextBox generatedPssword;
+        private TextBox genPassTB;
         private Label label12;
         private Label label11;
         private Label label10;

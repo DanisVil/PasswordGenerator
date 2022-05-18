@@ -36,7 +36,7 @@ namespace PasswordGenerator
         private void Form1_Load(object sender, EventArgs e)
         {
             Size = new Size(434, 415);
-
+            comboBox1.SelectedIndex = 0;
         }
 
         private void signButton_Click(object sender, EventArgs e)
@@ -54,7 +54,9 @@ namespace PasswordGenerator
                     connection.Open();
                     SQLiteCommand command = new SQLiteCommand();
                     command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM users WHERE login = '{loginTextBox.Text}' AND pass = '{passwordTextBox.Text}'";
+                    command.CommandText = $"SELECT * FROM users WHERE login = @name AND pass = @hash";
+                    command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passwordTextBox.Text, loginTextBox.Text)));
+                    command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         int id = 0;
@@ -81,8 +83,51 @@ namespace PasswordGenerator
 
         private void signBtn2_Click(object sender, EventArgs e)
         {
-
+            if (!CheckCorrectRegistr())
+            {
+                MessageBox.Show("Заполните все");
+                return;
+            }
+            if (CheckMail())
+            {
+                MessageBox.Show("Такой логин существует");
+                return;
+            }
+            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db"))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = $"INSERT INTO users (login, pass) VALUES (@name, @hash)";
+                command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passTextBox.Text, loginTB.Text)));
+                command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
+                command.ExecuteNonQuery();
+            }
             MessageBox.Show("успешный вход");
+        }
+
+        private bool CheckMail()
+        {
+            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = $"SELECT * FROM users WHERE login = '{loginTB.Text}'";
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        return true; 
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool CheckCorrectRegistr()
+        {
+            return passCheck2.ForeColor == Color.Green && confirmPassCheck.ForeColor == Color.Green && mailCheck2.ForeColor == Color.Green;
         }
 
         private void goBackBtn_Click(object sender, EventArgs e)
@@ -207,6 +252,72 @@ namespace PasswordGenerator
         private void showConfirmPassCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             confirmPassTextBox.UseSystemPasswordChar = !showConfirmPassCheckBox.Checked;
+        }
+
+        private void confirmGeneration_Click(object sender, EventArgs e)
+        {
+            bool flag = false;
+            foreach (Control control in tabPage3.Controls)
+            {
+                if (control is CheckBox && (control as CheckBox).Checked && !control.Name.Equals("checkBox4"))
+                {
+                    flag = true;
+                }
+            }
+            if (!flag)
+            {
+                MessageBox.Show("Выберите параметры");
+                return;
+            }
+            ConfigGenerator();
+            do
+            {
+                genPassTB.Text = GenericPassword.GetPass(); 
+            } while (ThereHit(genPassTB.Text));
+            passTextBox.Text = genPassTB.Text;
+            confirmPassTextBox.Text = genPassTB.Text;
+        }
+
+        private bool ThereHit(string password)
+        {
+            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = $"SELECT login,pass FROM users";
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            if (HashPass.PasswordToHashSalt(password, reader.GetString(0)).Equals(reader.GetString(1)))
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void ConfigGenerator()
+        {
+            int length;
+            if (!int.TryParse(comboBox1.Text, out length))
+            {
+                length = 6;
+            }
+            GenericPassword.IncludeNumbers = checkBox1.Checked;
+            GenericPassword.IncludeSimbols = checkBox6.Checked;
+            GenericPassword.Length = length;
+            GenericPassword.LowerCase = checkBox2.Checked;
+            GenericPassword.UpperCase = checkBox3.Checked;
+            GenericPassword.SimilarChar = checkBox5.Checked;
+            GenericPassword.AmbiguousChar = checkBox7.Checked;
+            GenericPassword.WordOn = checkBox4.Checked;
         }
     }
 }

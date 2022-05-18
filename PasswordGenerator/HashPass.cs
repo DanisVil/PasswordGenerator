@@ -45,5 +45,9 @@ namespace PasswordGenerator
         {
             return hash.Equals(HashRememberSaltTeam(Hash256StringToString(pass), login));
         }
+        public static string PasswordToHashSalt(string password, string salt)
+        {
+            return HashRememberSaltTeam(Hash256StringToString(password), salt);
+        }
     }
 }

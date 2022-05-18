@@ -9,19 +9,19 @@ namespace PasswordGenerator
 {
     class GenericPassword
     {
-        private const int LENGTH = 10;
-        private const bool WORD_ON = true;
-        private const bool SIMILAR_CHAR = true;
-        private const bool AMBIGUOUS_CHAR = true;
-        private const bool INCLUDE_SIMBOLS = true;
-        private const bool INCLUDE_NUMBERS = false;
-        private const bool LOWERCASE = false;
-        private const bool UPPERCASE = false;
+        public static int Length { get; set; }
+        public static bool WordOn { get; set; }
+        public static bool SimilarChar { get; set; }
+        public static bool AmbiguousChar { get; set; }
+        public static bool IncludeSimbols { get; set; }
+        public static bool IncludeNumbers { get; set; }
+        public static bool LowerCase { get; set; }
+        public static bool UpperCase { get; set; }
+
         private const string SIMILAR_CHARS = "il1Lo0O";
         private const string AMBIGUOUS_CHARS = "{}[]()/\\\'\"`~,;:.<>";
         private const int ASKII_MAX = 126;
-        private const int CORRECTOR = 2;
-        private static string[] SWEAR_WORDS = Properties.Resources.swear_words.Split('\n'); //матюки
+        private static string[] SWEAR_WORDS = Properties.Resources.swear_words.Split('\r'); //матюки
 
         public static string GetPass()
         {
@@ -30,13 +30,13 @@ namespace PasswordGenerator
             int wordWeight = 0;
             int indexWord = 0;
             string word=null;
-            if (WORD_ON)
+            if (WordOn)
             {
-                word = GetWord(4);
-                indexWord = rnd.Next(0, LENGTH - word.Length + 1);
+                word = GetWord(Length);
+                indexWord = rnd.Next(0, Length - word.Length + 1);
                 wordWeight = word.Length;
             }
-            for (int i = 0; i < LENGTH - wordWeight; i++)
+            for (int i = 0; i < Length - wordWeight; i++)
             {
                 char sym;
                 do
@@ -55,13 +55,13 @@ namespace PasswordGenerator
         private static bool SymIsNotCorrect(char sym)
         {
             bool isSymbol = char.IsPunctuation(sym) || char.IsSymbol(sym);
-            bool symbolsOn = isSymbol && INCLUDE_SIMBOLS;
-            bool digitOn = char.IsDigit(sym) && INCLUDE_NUMBERS;
-            bool lowerOn = char.IsLower(sym) && LOWERCASE;
-            bool upperOn = char.IsUpper(sym) && UPPERCASE;
+            bool symbolsOn = isSymbol && IncludeSimbols;
+            bool digitOn = char.IsDigit(sym) && IncludeNumbers;
+            bool lowerOn = char.IsLower(sym) && LowerCase;
+            bool upperOn = char.IsUpper(sym) && UpperCase;
             bool character = digitOn || symbolsOn || lowerOn || upperOn;
-            bool similarOn = SIMILAR_CHARS.Contains(sym) && SIMILAR_CHAR;
-            bool ambiguousOn = AMBIGUOUS_CHARS.Contains(sym) && AMBIGUOUS_CHAR;
+            bool similarOn = SIMILAR_CHARS.Contains(sym) && SimilarChar;
+            bool ambiguousOn = AMBIGUOUS_CHARS.Contains(sym) && AmbiguousChar;
             bool generalCondition = similarOn
                                     || ambiguousOn
                                     || char.IsWhiteSpace(sym)
@@ -72,7 +72,7 @@ namespace PasswordGenerator
         private static string GetWord(int length)
         {
             Random rnd = new Random();
-            int maxLengthWord = rnd.Next(SWEAR_WORDS.Min(x => x.Length), length - CORRECTOR);
+            int maxLengthWord = rnd.Next(SWEAR_WORDS.Min(x => x.Trim().Length), length);
             string word = SWEAR_WORDS[rnd.Next(SWEAR_WORDS.Length)];
             while (word.Length > maxLengthWord)
             {
@@ -80,5 +80,6 @@ namespace PasswordGenerator
             }
             return word;
         }
+        
     }
 }
