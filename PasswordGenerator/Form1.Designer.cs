@@ -33,6 +33,7 @@ namespace PasswordGenerator
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.showPassCheckBox = new System.Windows.Forms.CheckBox();
@@ -258,10 +259,10 @@ namespace PasswordGenerator
             this.tabPage2.Controls.Add(this.signBtn2);
             this.tabPage2.Controls.Add(this.generatePassBtn);
             this.tabPage2.Controls.Add(this.goBackBtn);
-            this.tabPage2.Location = new System.Drawing.Point(4, 14);
+            this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(562, 361);
+            this.tabPage2.Size = new System.Drawing.Size(562, 370);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -446,10 +447,10 @@ namespace PasswordGenerator
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.confirmGeneration);
             this.tabPage3.Controls.Add(this.backBtn2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 14);
+            this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(562, 361);
+            this.tabPage3.Size = new System.Drawing.Size(562, 370);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -744,6 +745,7 @@ namespace PasswordGenerator
             this.ClientSize = new System.Drawing.Size(570, 379);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(586, 418);
             this.MinimumSize = new System.Drawing.Size(434, 415);

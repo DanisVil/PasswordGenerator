@@ -16,7 +16,7 @@ namespace PasswordGenerator
 {
     public partial class Form1 : Form
     {
-        private Color backColor = Color.FromArgb(186, 85, 54), controlColor = Color.FromArgb(164, 56, 32);
+        private Color backColor = Color.FromArgb(239, 214, 172), controlColor = Color.FromArgb(196, 73, 0);
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public Form1()
         {
