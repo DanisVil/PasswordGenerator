@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using NLog;
 
 
 namespace PasswordGenerator
 {
     public partial class Form1 : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public Form1()
         {
             InitializeComponent();
@@ -49,28 +51,38 @@ namespace PasswordGenerator
             }
             else 
             {
-                using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly")) 
+                try
                 {
-                    connection.Open();
-                    SQLiteCommand command = new SQLiteCommand();
-                    command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM users WHERE login = @name AND pass = @hash";
-                    command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passwordTextBox.Text, loginTextBox.Text)));
-                    command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
                     {
-                        int id = 0;
-                        if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
+                        connection.Open();
+                        logger.Info("Успешное подключение к бд");
+                        SQLiteCommand command = new SQLiteCommand();
+                        command.Connection = connection;
+                        command.CommandText = $"SELECT * FROM users WHERE login = @name AND pass = @hash";
+                        command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passwordTextBox.Text, loginTextBox.Text)));
+                        command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
+                        using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            passwordTextBox.Text = string.Empty;
-                            MessageBox.Show("успешно");
-                            return;
+                            int id = 0;
+                            if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
+                            {
+                                passwordTextBox.Text = string.Empty;
+                                logger.Info("Человек зашел куда хотел");
+                                MessageBox.Show("успешно");
+                                return;
+                            }
                         }
                     }
+                }
+                catch (Exception excep)
+                {
+                    logger.Error($"Ошибка в бд и в геноме того кто ее создал{excep.Message}");
                 }
             }
             
             incorrectDataLabel.Text = "Неверные логин или пароль";
+            logger.Info("КТо то забыл пароль");
             incorrectDataLabel.Visible = true;
 
         }
@@ -80,7 +92,6 @@ namespace PasswordGenerator
             tabControl1.SelectedTab = tabPage3;
             Size = new Size(586, 418);
         }
-
         private void signBtn2_Click(object sender, EventArgs e)
         {
             if (!CheckCorrectRegistr())
@@ -93,34 +104,52 @@ namespace PasswordGenerator
                 MessageBox.Show("Такой логин существует");
                 return;
             }
-            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db"))
+            try
             {
-                connection.Open();
-                SQLiteCommand command = new SQLiteCommand();
-                command.Connection = connection;
-                command.CommandText = $"INSERT INTO users (login, pass) VALUES (@name, @hash)";
-                command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passTextBox.Text, loginTB.Text)));
-                command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
-                command.ExecuteNonQuery();
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db"))
+                {
+                    connection.Open();
+                    logger.Info("Успешное подключение к базе");
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"INSERT INTO users (login, pass) VALUES (@name, @hash)";
+                    command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passTextBox.Text, loginTB.Text)));
+                    command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
+                    command.ExecuteNonQuery();
+                }
+                MessageBox.Show("успешный вход");
+                logger.Info("Кто то благополучно зашел туда куда ему надо");
             }
-            MessageBox.Show("успешный вход");
+            catch (Exception excep)
+            {
+                logger.Error($"Ошибка подключения к бд: {excep.Message}") ;
+            }
         }
 
         private bool CheckMail()
         {
-            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
+            try
             {
-                connection.Open();
-                SQLiteCommand command = new SQLiteCommand();
-                command.Connection = connection;
-                command.CommandText = $"SELECT * FROM users WHERE login = '{loginTB.Text}'";
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+                    logger.Info("Успешное подключение к базе");
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT * FROM users WHERE login = '{loginTB.Text}'";
+                    using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        return true; 
+                        if (reader.HasRows)
+                        {
+                            logger.Info("Кто то хотел зарегистрировать существующий логин");
+                            return true;
+                        }
                     }
                 }
+            }
+            catch (Exception excep)
+            {
+                logger.Error($"Ошибка подключения к бд: {excep.Message}");
             }
             return false;
         }
@@ -280,26 +309,36 @@ namespace PasswordGenerator
 
         private bool ThereHit(string password)
         {
-            using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
+            try
             {
-                connection.Open();
-                SQLiteCommand command = new SQLiteCommand();
-                command.Connection = connection;
-                command.CommandText = $"SELECT login,pass FROM users";
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\passwordGenerator.db;Mode=ReadOnly"))
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+                    logger.Info("Успешное подключение");
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT login,pass FROM users";
+                    using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            if (HashPass.PasswordToHashSalt(password, reader.GetString(0)).Equals(reader.GetString(1)))
+                            while (reader.Read())
                             {
-                                return true;
+                                if (HashPass.PasswordToHashSalt(password, reader.GetString(0)).Equals(reader.GetString(1)))
+                                {
+                                    logger.Info("Нашлось совпадение по сгенерированным паролям");
+                                    return true;
+                                }
                             }
                         }
                     }
                 }
             }
+            catch (Exception excep)
+            {
+                logger.Error($"Ошибка подключения бд:{excep.Message}");
+            }
+            
             return false;
         }
 

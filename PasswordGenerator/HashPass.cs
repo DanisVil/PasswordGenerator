@@ -35,16 +35,6 @@ namespace PasswordGenerator
             }
             return sb.ToString();
         }
-        public static byte[] HashStringToByte(string input)
-        {
-            var sha256 = SHA256.Create();
-            return sha256.ComputeHash(input.Select(x => ((byte)x)).ToArray());
-        }
-        
-        public static bool CompareHashAndPass(string hash, string pass, string login)
-        {
-            return hash.Equals(HashRememberSaltTeam(Hash256StringToString(pass), login));
-        }
         public static string PasswordToHashSalt(string password, string salt)
         {
             return HashRememberSaltTeam(Hash256StringToString(password), salt);
