@@ -61,7 +61,7 @@ namespace PasswordGenerator
                         command.Connection = connection;
                         command.CommandText = $"SELECT * FROM users WHERE login = @name AND pass = @hash";
                         command.Parameters.Add(new SQLiteParameter("@hash", HashPass.PasswordToHashSalt(passwordTextBox.Text, loginTextBox.Text)));
-                        command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
+                        command.Parameters.Add(new SQLiteParameter("@name", loginTextBox.Text));
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
                             int id = 0;
