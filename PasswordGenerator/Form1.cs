@@ -307,14 +307,8 @@ namespace PasswordGenerator
 
         private void confirmGeneration_Click(object sender, EventArgs e)
         {
-            bool flag = false;
-            foreach (Control control in tabPage3.Controls)
-            {
-                if (control is CheckBox && (control as CheckBox).Checked && !control.Name.Equals("checkBox4"))
-                {
-                    flag = true;
-                }
-            }
+            bool flag = checkBox1.Checked || checkBox2.Checked || checkBox3.Checked || checkBox6.Checked;
+            
             if (!flag)
             {
                 MessageBox.Show("Выберите параметры");
