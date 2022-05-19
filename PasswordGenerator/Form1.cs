@@ -16,6 +16,7 @@ namespace PasswordGenerator
 {
     public partial class Form1 : Form
     {
+        private Color backColor = Color.FromArgb(186, 85, 54), controlColor = Color.FromArgb(164, 56, 32);
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public Form1()
         {
@@ -39,6 +40,27 @@ namespace PasswordGenerator
         {
             Size = new Size(434, 415);
             comboBox1.SelectedIndex = 0;
+            tabPage1.BackColor = backColor;
+            tabPage2.BackColor = backColor;
+            tabPage3.BackColor = backColor;
+            SetStyle(signButton, controlColor);
+            SetStyle(signBtn2, controlColor);
+            SetStyle(goBackBtn, controlColor);
+            SetStyle(generatePassBtn, controlColor);
+            SetStyle(backBtn2, controlColor);
+            SetStyle(confirmGeneration, controlColor);
+        }
+        private void SetStyle (Control c, Color color)
+        {
+            c.BackColor = color;
+            Button btn = c as Button;
+            if (btn != null)
+            {
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+                btn.ForeColor = Color.White;
+            }
         }
 
         private void signButton_Click(object sender, EventArgs e)
@@ -82,7 +104,7 @@ namespace PasswordGenerator
             }
             
             incorrectDataLabel.Text = "Неверные логин или пароль";
-            logger.Info("КТо то забыл пароль");
+            logger.Info("Кто то забыл пароль");
             incorrectDataLabel.Visible = true;
 
         }
@@ -192,11 +214,11 @@ namespace PasswordGenerator
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
-            passwordMatch = passwordTextBox.Text.Length > 7 && !cyrillic.Intersect(passwordTextBox.Text).Any();
+            passwordMatch = passwordTextBox.Text.Length > 5 && !cyrillic.Intersect(passwordTextBox.Text).Any();
             if (!passwordMatch)
             {
                 passTip.ToolTipTitle = "Почему пароль не подходит?";
-                passTip.SetToolTip(passwordCheck, "• Пароль должен содержать минимум 8 символов\n" +
+                passTip.SetToolTip(passwordCheck, "• Пароль должен содержать минимум 6 символов\n" +
                     "• Пароль не должен содержать символов кириллицы");
                 passwordCheck.Text = "❌";
                 passwordCheck.ForeColor = Color.Red;
@@ -236,11 +258,11 @@ namespace PasswordGenerator
 
         private void passTextBox_TextChanged(object sender, EventArgs e)
         {
-            passwordMatch = passTextBox.Text.Length > 7 && !cyrillic.Intersect(passTextBox.Text).Any();
+            passwordMatch = passTextBox.Text.Length > 5 && !cyrillic.Intersect(passTextBox.Text).Any();
             if (!passwordMatch)
             {
                 passTip2.ToolTipTitle = "Почему пароль не подходит?";
-                passTip2.SetToolTip(passCheck2, "• Пароль должен содержать минимум 8 символов\n" +
+                passTip2.SetToolTip(passCheck2, "• Пароль должен содержать минимум 6 символов\n" +
                     "• Пароль не должен содержать символов кириллицы");
                 passCheck2.Text = "❌";
                 passCheck2.ForeColor = Color.Red;
@@ -258,7 +280,7 @@ namespace PasswordGenerator
         {
             confirmPassTip.ToolTipTitle = "Подтверждение";
 
-            confirmPassMatch = confirmPassTextBox.Text.Equals(passTextBox.Text) && passTextBox.Text.Length > 7;
+            confirmPassMatch = confirmPassTextBox.Text.Equals(passTextBox.Text) && passTextBox.Text.Length > 5;
             if (confirmPassMatch)
             {
                 confirmPassTip.SetToolTip(confirmPassCheck, "Все в порядке");
@@ -340,6 +362,11 @@ namespace PasswordGenerator
             }
             
             return false;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void ConfigGenerator()
