@@ -91,7 +91,9 @@ namespace PasswordGenerator
                             {
                                 passwordTextBox.Text = string.Empty;
                                 logger.Info("Человек зашел куда хотел");
-                                MessageBox.Show("успешно");
+                                Player player = new Player();
+                                player.ChangeLabel("Добро пожаловать," + loginTextBox.Text + "!!!");
+                                player.ShowDialog();
                                 return;
                             }
                         }
@@ -139,7 +141,9 @@ namespace PasswordGenerator
                     command.Parameters.Add(new SQLiteParameter("@name", loginTB.Text));
                     command.ExecuteNonQuery();
                 }
-                MessageBox.Show("успешный вход");
+                Player player = new Player();
+                player.ChangeLabel("Добро пожаловать," + loginTB.Text + "!!!");
+                player.ShowDialog();
                 logger.Info("Кто то благополучно зашел туда куда ему надо");
             }
             catch (Exception excep)
