@@ -108,7 +108,7 @@ namespace PasswordGenerator
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.tabPage1.Controls.Add(this.showPassCheckBox);
             this.tabPage1.Controls.Add(this.mailCheck);
             this.tabPage1.Controls.Add(this.passwordCheck);
@@ -120,7 +120,7 @@ namespace PasswordGenerator
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(410, 367);
+            this.tabPage1.Size = new System.Drawing.Size(559, 367);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -132,7 +132,7 @@ namespace PasswordGenerator
             this.showPassCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.showPassCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassCheckBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showPassCheckBox.ForeColor = System.Drawing.Color.White;
+            this.showPassCheckBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.showPassCheckBox.Location = new System.Drawing.Point(100, 227);
             this.showPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showPassCheckBox.Name = "showPassCheckBox";
@@ -237,9 +237,10 @@ namespace PasswordGenerator
             this.loginTextBox.BackColor = System.Drawing.Color.Salmon;
             this.loginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.loginTextBox.Depth = 0;
-            this.loginTextBox.Font = new System.Drawing.Font("Gabriola", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.loginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.loginTextBox.ForeColor = System.Drawing.Color.White;
             this.loginTextBox.Hint = "Введите логин";
+            this.loginTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.loginTextBox.LeadingIcon = global::PasswordGenerator.Properties.Resources.user;
             this.loginTextBox.Location = new System.Drawing.Point(100, 85);
             this.loginTextBox.MaxLength = 50;
@@ -269,7 +270,7 @@ namespace PasswordGenerator
             this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(410, 367);
+            this.tabPage2.Size = new System.Drawing.Size(559, 367);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -280,7 +281,7 @@ namespace PasswordGenerator
             this.showConfirmPassCheckBox.FlatAppearance.BorderSize = 0;
             this.showConfirmPassCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showConfirmPassCheckBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F);
-            this.showConfirmPassCheckBox.ForeColor = System.Drawing.Color.Silver;
+            this.showConfirmPassCheckBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.showConfirmPassCheckBox.Location = new System.Drawing.Point(56, 236);
             this.showConfirmPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showConfirmPassCheckBox.Name = "showConfirmPassCheckBox";
@@ -297,7 +298,7 @@ namespace PasswordGenerator
             this.showPassCheckBox2.FlatAppearance.BorderSize = 0;
             this.showPassCheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassCheckBox2.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showPassCheckBox2.ForeColor = System.Drawing.Color.Silver;
+            this.showPassCheckBox2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.showPassCheckBox2.Location = new System.Drawing.Point(56, 148);
             this.showPassCheckBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showPassCheckBox2.Name = "showPassCheckBox2";
@@ -392,7 +393,7 @@ namespace PasswordGenerator
             this.loginTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.loginTB.Hint = "Введите логин";
             this.loginTB.LeadingIcon = global::PasswordGenerator.Properties.Resources.user;
-            this.loginTB.Location = new System.Drawing.Point(56, 31);
+            this.loginTB.Location = new System.Drawing.Point(56, 21);
             this.loginTB.MaxLength = 50;
             this.loginTB.MouseState = MaterialSkin.MouseState.OUT;
             this.loginTB.Multiline = false;
