@@ -496,6 +496,7 @@ namespace PasswordGenerator
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
@@ -559,7 +560,7 @@ namespace PasswordGenerator
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox7.ForeColor = System.Drawing.Color.White;
+            this.checkBox7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox7.Location = new System.Drawing.Point(324, 281);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(189, 22);
@@ -571,7 +572,7 @@ namespace PasswordGenerator
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label14.Location = new System.Drawing.Point(12, 278);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(303, 18);
@@ -582,7 +583,7 @@ namespace PasswordGenerator
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox5.ForeColor = System.Drawing.Color.White;
+            this.checkBox5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox5.Location = new System.Drawing.Point(324, 249);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(202, 22);
@@ -594,7 +595,7 @@ namespace PasswordGenerator
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(12, 246);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(237, 18);
@@ -605,7 +606,7 @@ namespace PasswordGenerator
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox6.ForeColor = System.Drawing.Color.White;
+            this.checkBox6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.checkBox6.Location = new System.Drawing.Point(324, 135);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(170, 22);
@@ -626,7 +627,7 @@ namespace PasswordGenerator
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
+            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox3.Location = new System.Drawing.Point(324, 190);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(185, 22);
@@ -638,7 +639,7 @@ namespace PasswordGenerator
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox2.Location = new System.Drawing.Point(324, 218);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(162, 22);
@@ -650,7 +651,7 @@ namespace PasswordGenerator
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox1.Location = new System.Drawing.Point(324, 163);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(168, 22);
@@ -681,7 +682,7 @@ namespace PasswordGenerator
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label12.Location = new System.Drawing.Point(12, 78);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(115, 18);
@@ -692,7 +693,7 @@ namespace PasswordGenerator
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label11.Location = new System.Drawing.Point(12, 160);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 18);
@@ -703,7 +704,7 @@ namespace PasswordGenerator
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label10.Location = new System.Drawing.Point(12, 105);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(241, 18);
@@ -714,7 +715,7 @@ namespace PasswordGenerator
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label9.Location = new System.Drawing.Point(12, 132);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 18);
@@ -725,7 +726,7 @@ namespace PasswordGenerator
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(12, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(233, 18);
@@ -736,7 +737,7 @@ namespace PasswordGenerator
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(12, 215);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(224, 18);
@@ -747,7 +748,7 @@ namespace PasswordGenerator
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(11, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 24);
