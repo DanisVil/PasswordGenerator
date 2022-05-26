@@ -9,35 +9,29 @@ namespace PasswordGenerator
 {
     class HashPass
     {
-        public static string Hash256StringToString(string input)
+        public static byte[] Hash256String(string input)
         {
-            var sha256 = SHA256.Create();
-            byte[] byteStringAfter = sha256.ComputeHash(input.Select(x => ((byte)x)).ToArray());
-            return string.Concat(byteStringAfter.Select(x => (char)x));
+            SHA256 sha256 = SHA256.Create();
+            return sha256.ComputeHash(input.Select(x => (byte)x).ToArray());
         }
-        public static string Hash1StringToString(string input)
+        public static byte[] Hash1String(string input)
         {
-            var sha1 = SHA1.Create();
-            byte[] byteStringAfter = sha1.ComputeHash(input.Select(x => ((byte)x)).ToArray());
-            return string.Concat(byteStringAfter.Select(x => (char)x));
+            SHA1 sha1 = SHA1.Create();
+            return sha1.ComputeHash(input.Select(x => (byte)x).ToArray());
         }
-        public static string HashRememberSaltTeam(string hash, string salt)
+        public static byte[] HashAddSalt(byte[] hash, byte[] salt)
         {
-            if (hash.Length != 32)
-            {
-                throw new Exception("Тут должно быть 32 символа не больше, не меньше.");
-            }
-            StringBuilder sb = new StringBuilder(hash);
-            salt = Hash1StringToString(salt);
             for (int i = 0; i < salt.Length; i++)
             {
-                sb.Insert(salt[i] % 32, salt[i]);
+                hash[i] = (byte)(((int)hash[i] + 13 * (int)salt[i]) % 255);
             }
-            return sb.ToString();
+            byte[] final = new byte[hash.Length];
+            Array.Copy(hash, final, hash.Length);
+            return final;
         }
-        public static string PasswordToHashSalt(string password, string salt)
+        public static byte[] PasswordToHashSalt(string password, string salt)
         {
-            return HashRememberSaltTeam(Hash256StringToString(password), salt);
+            return HashAddSalt(Hash256String(password), Hash1String(salt));
         }
     }
 }
