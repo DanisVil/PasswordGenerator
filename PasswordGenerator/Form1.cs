@@ -238,7 +238,7 @@ namespace PasswordGenerator
 
         private void showPassCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            passwordTextBox.UseSystemPasswordChar = !showPassCheckBox.Checked;
+            passwordTextBox.Password = !showPassCheckBox.Checked;
         }
 
         private void loginTB_TextChanged(object sender, EventArgs e)
