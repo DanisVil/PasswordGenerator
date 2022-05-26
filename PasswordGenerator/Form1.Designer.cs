@@ -42,7 +42,7 @@ namespace PasswordGenerator
             this.incorrectDataLabel = new System.Windows.Forms.Label();
             this.signButton = new MaterialSkin.Controls.MaterialButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.loginTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.showConfirmPassCheckBox = new System.Windows.Forms.CheckBox();
@@ -50,8 +50,8 @@ namespace PasswordGenerator
             this.confirmPassCheck = new System.Windows.Forms.Label();
             this.mailCheck2 = new System.Windows.Forms.Label();
             this.passCheck2 = new System.Windows.Forms.Label();
-            this.passTextBox = new MaterialSkin.Controls.MaterialTextBox();
-            this.confirmPassTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.passTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            this.confirmPassTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.loginTB = new MaterialSkin.Controls.MaterialTextBox();
             this.signBtn2 = new MaterialSkin.Controls.MaterialButton();
             this.generatePassBtn = new MaterialSkin.Controls.MaterialButton();
@@ -214,17 +214,15 @@ namespace PasswordGenerator
             // 
             this.passwordTextBox.AnimateReadOnly = false;
             this.passwordTextBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            
             this.passwordTextBox.Depth = 0;
             this.passwordTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.passwordTextBox.Hint = "Введите пароль";
             this.passwordTextBox.LeadingIcon = global::PasswordGenerator.Properties.Resources.padlock;
             this.passwordTextBox.Location = new System.Drawing.Point(100, 171);
             this.passwordTextBox.MaxLength = 50;
-            this.passwordTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.passwordTextBox.Multiline = false;
+            
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Password = true;
             this.passwordTextBox.Size = new System.Drawing.Size(221, 50);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.Text = "";
@@ -346,7 +344,7 @@ namespace PasswordGenerator
             // 
             this.passTextBox.AnimateReadOnly = false;
             this.passTextBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.passTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            
             this.passTextBox.Depth = 0;
             this.passTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.passTextBox.Hint = "Введите пароль";
@@ -354,9 +352,8 @@ namespace PasswordGenerator
             this.passTextBox.Location = new System.Drawing.Point(56, 92);
             this.passTextBox.MaxLength = 50;
             this.passTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.passTextBox.Multiline = false;
+            
             this.passTextBox.Name = "passTextBox";
-            this.passTextBox.Password = true;
             this.passTextBox.Size = new System.Drawing.Size(270, 50);
             this.passTextBox.TabIndex = 5;
             this.passTextBox.Text = "";
@@ -367,7 +364,6 @@ namespace PasswordGenerator
             // 
             this.confirmPassTextBox.AnimateReadOnly = false;
             this.confirmPassTextBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.confirmPassTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.confirmPassTextBox.Depth = 0;
             this.confirmPassTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.confirmPassTextBox.Hint = "Подтвердите пароль";
@@ -375,9 +371,8 @@ namespace PasswordGenerator
             this.confirmPassTextBox.Location = new System.Drawing.Point(56, 180);
             this.confirmPassTextBox.MaxLength = 50;
             this.confirmPassTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.confirmPassTextBox.Multiline = false;
+           
             this.confirmPassTextBox.Name = "confirmPassTextBox";
-            this.confirmPassTextBox.Password = true;
             this.confirmPassTextBox.Size = new System.Drawing.Size(270, 50);
             this.confirmPassTextBox.TabIndex = 4;
             this.confirmPassTextBox.Text = "";
@@ -839,7 +834,7 @@ namespace PasswordGenerator
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private MaterialSkin.Controls.MaterialTextBox passwordTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 passwordTextBox;
         private MaterialSkin.Controls.MaterialTextBox loginTextBox;
         private LinkLabel linkLabel1;
         private MaterialSkin.Controls.MaterialButton signBtn2;
@@ -847,8 +842,8 @@ namespace PasswordGenerator
         private MaterialSkin.Controls.MaterialButton goBackBtn;
         private MaterialSkin.Controls.MaterialButton signButton;
         private MaterialSkin.Controls.MaterialTextBox loginTB;
-        private MaterialSkin.Controls.MaterialTextBox passTextBox;
-        private MaterialSkin.Controls.MaterialTextBox confirmPassTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 passTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 confirmPassTextBox;
         private CheckBox checkBox7;
         private Label label14;
         private CheckBox checkBox5;
