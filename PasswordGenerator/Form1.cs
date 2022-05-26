@@ -277,6 +277,19 @@ namespace PasswordGenerator
                 passTip2.SetToolTip(passCheck2, "Надежный пароль");
                 passCheck2.Text = "✔️";
                 passCheck2.ForeColor = Color.Green;
+                confirmPassMatch = passTextBox.Text.Equals(confirmPassTextBox.Text) && passTextBox.Text.Length > 5;
+                if (confirmPassMatch)
+                {
+                    confirmPassTip.SetToolTip(confirmPassCheck, "Все в порядке");
+                    confirmPassCheck.Text = "✔️";
+                    confirmPassCheck.ForeColor = Color.Green;
+                }
+                else
+                {
+                    confirmPassTip.SetToolTip(confirmPassCheck, "Пароли должны совпадать");
+                    confirmPassCheck.Text = "❌";
+                    confirmPassCheck.ForeColor = Color.Red;
+                }
             }
         }
 
