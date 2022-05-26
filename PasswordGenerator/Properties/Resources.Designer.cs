@@ -19,7 +19,7 @@ namespace PasswordGenerator.Properties {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,11 +61,31 @@ namespace PasswordGenerator.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap padlock {
+            get {
+                object obj = ResourceManager.GetObject("padlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на ass        ///bum        ///cok        ///cox        ///cum        ///fag        ///fuk        ///gay        ///nob        ///sex        ///wop        ///anal        ///anus        ///arse        ///boob        ///butt        ///cawk        ///cipa        ///clit        ///cock        ///coon        ///crap        ///cums        ///cunt        ///dago        ///damn        ///dick        ///dink        ///fags        ///feck        ///fuck        ///fuks        ///gook        ///heeb        ///homo        ///knob        ///orgy        ///piss        ///poop        ///porn        ///quim        ///shag        ///shit        ///slag        ///slut        ///smeg        ///spic        ///suck        ///tard        ///tits        ///turd        ///twat        ///wang        ///wank        ///arrse        ///asses        ///balls        ///bitch        ///boner        ///boobs        ///chinc        ///chink        ///choad        ///clits        ///cocks        ///coons        ///cunts        ///dicks        ///dildo        ///dinks        ///faggs        ///fagot        ///fanny        ///fecal        ///fucks        ///fuker        ///gaydo        ///horny        ///juggs        ///kooch        ///labia        ///nigga        ///penis        ///prick        ///pussy        ///semen        ///shite        ///shits        ///sluts        ///spick        ///sucks        ///titty        ///twats        ///vulva        ///wanky        ///whoar        ///w [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string swear_words {
             get {
                 return ResourceManager.GetString("swear_words", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

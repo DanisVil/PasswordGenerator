@@ -34,18 +34,16 @@ namespace PasswordGenerator
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.showPassCheckBox = new System.Windows.Forms.CheckBox();
             this.mailCheck = new System.Windows.Forms.Label();
             this.passwordCheck = new System.Windows.Forms.Label();
             this.incorrectDataLabel = new System.Windows.Forms.Label();
-            this.signButton = new System.Windows.Forms.Button();
+            this.signButton = new MaterialSkin.Controls.MaterialButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.loginTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.showConfirmPassCheckBox = new System.Windows.Forms.CheckBox();
             this.showPassCheckBox2 = new System.Windows.Forms.CheckBox();
@@ -55,12 +53,12 @@ namespace PasswordGenerator
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.passTextBox = new System.Windows.Forms.TextBox();
-            this.confirmPassTextBox = new System.Windows.Forms.TextBox();
-            this.loginTB = new System.Windows.Forms.TextBox();
-            this.signBtn2 = new System.Windows.Forms.Button();
-            this.generatePassBtn = new System.Windows.Forms.Button();
-            this.goBackBtn = new System.Windows.Forms.Button();
+            this.passTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.confirmPassTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.loginTB = new MaterialSkin.Controls.MaterialTextBox();
+            this.signBtn2 = new MaterialSkin.Controls.MaterialButton();
+            this.generatePassBtn = new MaterialSkin.Controls.MaterialButton();
+            this.goBackBtn = new MaterialSkin.Controls.MaterialButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
@@ -72,7 +70,7 @@ namespace PasswordGenerator
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.genPassTB = new System.Windows.Forms.TextBox();
+            this.genPassTB = new MaterialSkin.Controls.MaterialTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -80,8 +78,8 @@ namespace PasswordGenerator
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.confirmGeneration = new System.Windows.Forms.Button();
-            this.backBtn2 = new System.Windows.Forms.Button();
+            this.confirmGeneration = new MaterialSkin.Controls.MaterialButton();
+            this.backBtn2 = new MaterialSkin.Controls.MaterialButton();
             this.passTip = new System.Windows.Forms.ToolTip(this.components);
             this.mailTip = new System.Windows.Forms.ToolTip(this.components);
             this.passTip2 = new System.Windows.Forms.ToolTip(this.components);
@@ -99,17 +97,21 @@ namespace PasswordGenerator
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Depth = 0;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(418, 379);
+            this.tabControl1.Size = new System.Drawing.Size(418, 376);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.tabPage1.Controls.Add(this.showPassCheckBox);
             this.tabPage1.Controls.Add(this.mailCheck);
             this.tabPage1.Controls.Add(this.passwordCheck);
@@ -118,21 +120,18 @@ namespace PasswordGenerator
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.passwordTextBox);
             this.tabPage1.Controls.Add(this.loginTextBox);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(410, 370);
+            this.tabPage1.Size = new System.Drawing.Size(410, 367);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // showPassCheckBox
             // 
             this.showPassCheckBox.AutoSize = true;
             this.showPassCheckBox.ForeColor = System.Drawing.Color.White;
-            this.showPassCheckBox.Location = new System.Drawing.Point(80, 227);
+            this.showPassCheckBox.Location = new System.Drawing.Point(100, 227);
             this.showPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showPassCheckBox.Name = "showPassCheckBox";
             this.showPassCheckBox.Size = new System.Drawing.Size(114, 17);
@@ -146,7 +145,7 @@ namespace PasswordGenerator
             this.mailCheck.AutoSize = true;
             this.mailCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mailCheck.ForeColor = System.Drawing.Color.Red;
-            this.mailCheck.Location = new System.Drawing.Point(309, 105);
+            this.mailCheck.Location = new System.Drawing.Point(337, 100);
             this.mailCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mailCheck.Name = "mailCheck";
             this.mailCheck.Size = new System.Drawing.Size(28, 17);
@@ -158,7 +157,7 @@ namespace PasswordGenerator
             this.passwordCheck.AutoSize = true;
             this.passwordCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordCheck.ForeColor = System.Drawing.Color.Red;
-            this.passwordCheck.Location = new System.Drawing.Point(309, 188);
+            this.passwordCheck.Location = new System.Drawing.Point(337, 187);
             this.passwordCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordCheck.Name = "passwordCheck";
             this.passwordCheck.Size = new System.Drawing.Size(0, 17);
@@ -177,12 +176,22 @@ namespace PasswordGenerator
             // 
             // signButton
             // 
+            this.signButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.signButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.signButton.Depth = 0;
             this.signButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signButton.Location = new System.Drawing.Point(80, 266);
+            this.signButton.HighEmphasis = true;
+            this.signButton.Icon = null;
+            this.signButton.Location = new System.Drawing.Point(162, 262);
+            this.signButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.signButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.signButton.Name = "signButton";
-            this.signButton.Size = new System.Drawing.Size(186, 41);
+            this.signButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.signButton.Size = new System.Drawing.Size(71, 36);
             this.signButton.TabIndex = 5;
             this.signButton.Text = "Войти";
+            this.signButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.signButton.UseAccentColor = false;
             this.signButton.UseVisualStyleBackColor = true;
             this.signButton.Click += new System.EventHandler(this.signButton_Click);
             // 
@@ -190,7 +199,8 @@ namespace PasswordGenerator
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-            this.linkLabel1.Location = new System.Drawing.Point(77, 328);
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.linkLabel1.Location = new System.Drawing.Point(97, 304);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(203, 17);
             this.linkLabel1.TabIndex = 4;
@@ -200,48 +210,45 @@ namespace PasswordGenerator
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.AnimateReadOnly = false;
             this.passwordTextBox.BackColor = System.Drawing.Color.PeachPuff;
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.passwordTextBox.Location = new System.Drawing.Point(80, 179);
+            this.passwordTextBox.Depth = 0;
+            this.passwordTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passwordTextBox.Hint = "Введите пароль";
+            this.passwordTextBox.LeadingIcon = global::PasswordGenerator.Properties.Resources.padlock;
+            this.passwordTextBox.Location = new System.Drawing.Point(100, 171);
+            this.passwordTextBox.MaxLength = 50;
+            this.passwordTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.passwordTextBox.Multiline = false;
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(221, 28);
+            this.passwordTextBox.Password = true;
+            this.passwordTextBox.Size = new System.Drawing.Size(221, 50);
             this.passwordTextBox.TabIndex = 3;
-            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.Text = "";
+            this.passwordTextBox.TrailingIcon = null;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // loginTextBox
             // 
-            this.loginTextBox.BackColor = System.Drawing.Color.PeachPuff;
+            this.loginTextBox.AnimateReadOnly = false;
+            this.loginTextBox.BackColor = System.Drawing.Color.Salmon;
             this.loginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.loginTextBox.Location = new System.Drawing.Point(80, 96);
+            this.loginTextBox.Depth = 0;
+            this.loginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.loginTextBox.ForeColor = System.Drawing.Color.White;
+            this.loginTextBox.Hint = "Введите логин";
+            this.loginTextBox.LeadingIcon = global::PasswordGenerator.Properties.Resources.user;
+            this.loginTextBox.Location = new System.Drawing.Point(100, 85);
+            this.loginTextBox.MaxLength = 50;
+            this.loginTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.loginTextBox.Multiline = false;
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(221, 28);
+            this.loginTextBox.Size = new System.Drawing.Size(221, 50);
             this.loginTextBox.TabIndex = 2;
+            this.loginTextBox.Text = "";
+            this.loginTextBox.TrailingIcon = null;
             this.loginTextBox.TextChanged += new System.EventHandler(this.loginTextBox_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(75, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Пароль";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(75, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Имя пользователя";
             // 
             // tabPage2
             // 
@@ -262,7 +269,7 @@ namespace PasswordGenerator
             this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(562, 370);
+            this.tabPage2.Size = new System.Drawing.Size(410, 367);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -362,66 +369,120 @@ namespace PasswordGenerator
             // 
             // passTextBox
             // 
+            this.passTextBox.AnimateReadOnly = false;
             this.passTextBox.BackColor = System.Drawing.Color.PeachPuff;
             this.passTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.passTextBox.Depth = 0;
+            this.passTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passTextBox.LeadingIcon = null;
             this.passTextBox.Location = new System.Drawing.Point(56, 114);
+            this.passTextBox.MaxLength = 50;
+            this.passTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.passTextBox.Multiline = false;
             this.passTextBox.Name = "passTextBox";
-            this.passTextBox.Size = new System.Drawing.Size(270, 28);
+            this.passTextBox.Password = true;
+            this.passTextBox.Size = new System.Drawing.Size(270, 50);
             this.passTextBox.TabIndex = 5;
-            this.passTextBox.UseSystemPasswordChar = true;
+            this.passTextBox.Text = "";
+            this.passTextBox.TrailingIcon = null;
             this.passTextBox.TextChanged += new System.EventHandler(this.passTextBox_TextChanged);
             // 
             // confirmPassTextBox
             // 
+            this.confirmPassTextBox.AnimateReadOnly = false;
             this.confirmPassTextBox.BackColor = System.Drawing.Color.PeachPuff;
             this.confirmPassTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.confirmPassTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.confirmPassTextBox.Depth = 0;
+            this.confirmPassTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.confirmPassTextBox.LeadingIcon = null;
             this.confirmPassTextBox.Location = new System.Drawing.Point(56, 196);
+            this.confirmPassTextBox.MaxLength = 50;
+            this.confirmPassTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.confirmPassTextBox.Multiline = false;
             this.confirmPassTextBox.Name = "confirmPassTextBox";
-            this.confirmPassTextBox.Size = new System.Drawing.Size(270, 28);
+            this.confirmPassTextBox.Password = true;
+            this.confirmPassTextBox.Size = new System.Drawing.Size(270, 50);
             this.confirmPassTextBox.TabIndex = 4;
-            this.confirmPassTextBox.UseSystemPasswordChar = true;
+            this.confirmPassTextBox.Text = "";
+            this.confirmPassTextBox.TrailingIcon = null;
             this.confirmPassTextBox.TextChanged += new System.EventHandler(this.confirmPassTextBox_TextChanged);
             // 
             // loginTB
             // 
+            this.loginTB.AnimateReadOnly = false;
             this.loginTB.BackColor = System.Drawing.Color.PeachPuff;
             this.loginTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.loginTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.loginTB.Depth = 0;
+            this.loginTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.loginTB.LeadingIcon = null;
             this.loginTB.Location = new System.Drawing.Point(56, 55);
+            this.loginTB.MaxLength = 50;
+            this.loginTB.MouseState = MaterialSkin.MouseState.OUT;
+            this.loginTB.Multiline = false;
             this.loginTB.Name = "loginTB";
-            this.loginTB.Size = new System.Drawing.Size(270, 28);
+            this.loginTB.Size = new System.Drawing.Size(270, 50);
             this.loginTB.TabIndex = 3;
+            this.loginTB.Text = "";
+            this.loginTB.TrailingIcon = null;
             this.loginTB.TextChanged += new System.EventHandler(this.loginTB_TextChanged);
             // 
             // signBtn2
             // 
+            this.signBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.signBtn2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.signBtn2.Depth = 0;
+            this.signBtn2.HighEmphasis = true;
+            this.signBtn2.Icon = null;
             this.signBtn2.Location = new System.Drawing.Point(197, 304);
+            this.signBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.signBtn2.MouseState = MaterialSkin.MouseState.HOVER;
             this.signBtn2.Name = "signBtn2";
-            this.signBtn2.Size = new System.Drawing.Size(129, 31);
+            this.signBtn2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.signBtn2.Size = new System.Drawing.Size(64, 36);
             this.signBtn2.TabIndex = 2;
             this.signBtn2.Text = "Вход";
+            this.signBtn2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.signBtn2.UseAccentColor = false;
             this.signBtn2.UseVisualStyleBackColor = true;
             this.signBtn2.Click += new System.EventHandler(this.signBtn2_Click);
             // 
             // generatePassBtn
             // 
+            this.generatePassBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.generatePassBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.generatePassBtn.Depth = 0;
+            this.generatePassBtn.HighEmphasis = true;
+            this.generatePassBtn.Icon = null;
             this.generatePassBtn.Location = new System.Drawing.Point(177, 244);
+            this.generatePassBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.generatePassBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.generatePassBtn.Name = "generatePassBtn";
-            this.generatePassBtn.Size = new System.Drawing.Size(149, 31);
+            this.generatePassBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.generatePassBtn.Size = new System.Drawing.Size(152, 36);
             this.generatePassBtn.TabIndex = 1;
             this.generatePassBtn.Text = "Создать пароль";
+            this.generatePassBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.generatePassBtn.UseAccentColor = false;
             this.generatePassBtn.UseVisualStyleBackColor = true;
             this.generatePassBtn.Click += new System.EventHandler(this.generatePassBtn_Click);
             // 
             // goBackBtn
             // 
+            this.goBackBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.goBackBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.goBackBtn.Depth = 0;
+            this.goBackBtn.HighEmphasis = true;
+            this.goBackBtn.Icon = null;
             this.goBackBtn.Location = new System.Drawing.Point(56, 304);
+            this.goBackBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.goBackBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.goBackBtn.Name = "goBackBtn";
-            this.goBackBtn.Size = new System.Drawing.Size(126, 31);
+            this.goBackBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.goBackBtn.Size = new System.Drawing.Size(71, 36);
             this.goBackBtn.TabIndex = 0;
             this.goBackBtn.Text = "Назад";
+            this.goBackBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.goBackBtn.UseAccentColor = false;
             this.goBackBtn.UseVisualStyleBackColor = true;
             this.goBackBtn.Click += new System.EventHandler(this.goBackBtn_Click);
             // 
@@ -450,7 +511,7 @@ namespace PasswordGenerator
             this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(562, 370);
+            this.tabPage3.Size = new System.Drawing.Size(410, 367);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -621,13 +682,22 @@ namespace PasswordGenerator
             // 
             // genPassTB
             // 
+            this.genPassTB.AnimateReadOnly = false;
             this.genPassTB.BackColor = System.Drawing.Color.PeachPuff;
-            this.genPassTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.genPassTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.genPassTB.Depth = 0;
+            this.genPassTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.genPassTB.LeadingIcon = null;
             this.genPassTB.Location = new System.Drawing.Point(209, 36);
+            this.genPassTB.MaxLength = 50;
+            this.genPassTB.MouseState = MaterialSkin.MouseState.OUT;
+            this.genPassTB.Multiline = false;
             this.genPassTB.Name = "genPassTB";
             this.genPassTB.ReadOnly = true;
-            this.genPassTB.Size = new System.Drawing.Size(269, 29);
+            this.genPassTB.Size = new System.Drawing.Size(269, 50);
             this.genPassTB.TabIndex = 10;
+            this.genPassTB.Text = "";
+            this.genPassTB.TrailingIcon = null;
             // 
             // label12
             // 
@@ -708,21 +778,41 @@ namespace PasswordGenerator
             // 
             // confirmGeneration
             // 
+            this.confirmGeneration.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.confirmGeneration.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.confirmGeneration.Depth = 0;
+            this.confirmGeneration.HighEmphasis = true;
+            this.confirmGeneration.Icon = null;
             this.confirmGeneration.Location = new System.Drawing.Point(324, 319);
+            this.confirmGeneration.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.confirmGeneration.MouseState = MaterialSkin.MouseState.HOVER;
             this.confirmGeneration.Name = "confirmGeneration";
-            this.confirmGeneration.Size = new System.Drawing.Size(107, 31);
+            this.confirmGeneration.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.confirmGeneration.Size = new System.Drawing.Size(112, 36);
             this.confirmGeneration.TabIndex = 2;
             this.confirmGeneration.Text = "Применить";
+            this.confirmGeneration.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.confirmGeneration.UseAccentColor = false;
             this.confirmGeneration.UseVisualStyleBackColor = true;
             this.confirmGeneration.Click += new System.EventHandler(this.confirmGeneration_Click);
             // 
             // backBtn2
             // 
+            this.backBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.backBtn2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.backBtn2.Depth = 0;
+            this.backBtn2.HighEmphasis = true;
+            this.backBtn2.Icon = null;
             this.backBtn2.Location = new System.Drawing.Point(69, 319);
+            this.backBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.backBtn2.MouseState = MaterialSkin.MouseState.HOVER;
             this.backBtn2.Name = "backBtn2";
-            this.backBtn2.Size = new System.Drawing.Size(107, 31);
+            this.backBtn2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.backBtn2.Size = new System.Drawing.Size(71, 36);
             this.backBtn2.TabIndex = 1;
             this.backBtn2.Text = "назад";
+            this.backBtn2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.backBtn2.UseAccentColor = false;
             this.backBtn2.UseVisualStyleBackColor = true;
             this.backBtn2.Click += new System.EventHandler(this.backBtn2_Click);
             // 
@@ -742,7 +832,8 @@ namespace PasswordGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 379);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.ClientSize = new System.Drawing.Size(418, 376);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -765,25 +856,23 @@ namespace PasswordGenerator
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private MaterialSkin.Controls.MaterialTabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private TextBox passwordTextBox;
-        private TextBox loginTextBox;
-        private Label label2;
-        private Label label1;
+        private MaterialSkin.Controls.MaterialTextBox passwordTextBox;
+        private MaterialSkin.Controls.MaterialTextBox loginTextBox;
         private LinkLabel linkLabel1;
-        private Button signBtn2;
-        private Button generatePassBtn;
-        private Button goBackBtn;
-        private Button signButton;
-        private TextBox loginTB;
+        private MaterialSkin.Controls.MaterialButton signBtn2;
+        private MaterialSkin.Controls.MaterialButton generatePassBtn;
+        private MaterialSkin.Controls.MaterialButton goBackBtn;
+        private MaterialSkin.Controls.MaterialButton signButton;
+        private MaterialSkin.Controls.MaterialTextBox loginTB;
         private Label label5;
         private Label label4;
         private Label label3;
-        private TextBox passTextBox;
-        private TextBox confirmPassTextBox;
+        private MaterialSkin.Controls.MaterialTextBox passTextBox;
+        private MaterialSkin.Controls.MaterialTextBox confirmPassTextBox;
         private CheckBox checkBox7;
         private Label label14;
         private CheckBox checkBox5;
@@ -793,7 +882,7 @@ namespace PasswordGenerator
         private CheckBox checkBox3;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
-        private TextBox genPassTB;
+        private MaterialSkin.Controls.MaterialTextBox genPassTB;
         private Label label12;
         private Label label11;
         private Label label10;
@@ -801,8 +890,8 @@ namespace PasswordGenerator
         private Label label8;
         private Label label7;
         private Label label6;
-        private Button confirmGeneration;
-        private Button backBtn2;
+        private MaterialSkin.Controls.MaterialButton confirmGeneration;
+        private MaterialSkin.Controls.MaterialButton backBtn2;
         private ComboBox comboBox1;
         private Label incorrectDataLabel;
         private Label mailCheck;

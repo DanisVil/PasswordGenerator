@@ -16,7 +16,7 @@ namespace PasswordGenerator
 {
     public partial class Form1 : Form
     {
-        private Color backColor = Color.FromArgb(130, 80, 80), controlColor = Color.FromArgb(160, 60, 60);
+        private Color backColor = Color.FromArgb(38, 38, 38), controlColor = Color.FromArgb(160, 60, 60);
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public Form1()
         {
@@ -234,7 +234,7 @@ namespace PasswordGenerator
 
         private void showPassCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            passwordTextBox.UseSystemPasswordChar = !showPassCheckBox.Checked;
+            passwordTextBox.Password = !showPassCheckBox.Checked;
         }
 
         private void loginTB_TextChanged(object sender, EventArgs e)
@@ -310,12 +310,12 @@ namespace PasswordGenerator
 
         private void showPassCheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            passTextBox.UseSystemPasswordChar = !showPassCheckBox2.Checked;
+            passTextBox.Password = !showPassCheckBox2.Checked;
         }
 
         private void showConfirmPassCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            confirmPassTextBox.UseSystemPasswordChar = !showConfirmPassCheckBox.Checked;
+            confirmPassTextBox.Password = !showConfirmPassCheckBox.Checked;
         }
 
         private void confirmGeneration_Click(object sender, EventArgs e)
